@@ -7,35 +7,72 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NavBar from "./NavBar.js"
 
-function Body(){
+function Body() {
+
+  const busy = window.busyness;
+  const loc = window.city
+  const parks = window.parks;
+  const entertain = window.entertainment;
+  const shop = window.shopping;
+  const restaurants = window.restaurants;
+  const nightlife = window.nightlife;
+  var start = String(window.startvalue);
+  var end = String(window.endvalue);
+
+  let startTime = ((start.split(" ")).slice(1, 4)).join('-')
+  let endTime = ((end.split(" ")).slice(1, 4)).join('-')
+
+  console.log(startTime);
+  console.log(endTime);
+
+  let cats = []
+  if (entertain) cats.push("Entertainment")
+  if (shop) cats.push("Shopping")
+  if (restaurants) cats.push("Restaurants")
+  if (nightlife) cats.push("Nightlife")
+  if (parks) cats.push("Parks")
+
+  let userCats = cats.join('-')
+
+  let city = loc.split(", ")[0];
+
+  var url = "http://localhost:5000/api/post/" + startTime + "/" + endTime + "/" + city + "/" + userCats + "/" + busy + "/";
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data))
 
   return (
     <Container bg={bg}>
-        <NavBar />
-        <Wrapper>
-            <Header>
-                All done! Check out your itinerary below:
-            </Header>
-        
-          <ButtonWrapper>
-            <Link to ="/"><DownloadButton>
-                {"Download as PDF"}
-            </DownloadButton> </Link>
-            <Link to ="/"><DownloadButton>
-                {"Download as ICS"}
-            </DownloadButton> </Link>
-          </ButtonWrapper>
-        </Wrapper>
+      <NavBar />
+      <Wrapper>
+        <Header>
+          All done! Check out your itinerary below:
+        </Header>
 
-        <LinkBox>
-          <Link to ="/Busy" ><Button>
-            {String.fromCharCode(8592)}
-              </Button> </Link>
-        </LinkBox>
+        <ButtonWrapper>
+            <a href="http://localhost:5000/api/get/itinerary/pdf" target="_blank">
+              <DownloadButton>
+                {"Download as PDF"}
+              </DownloadButton>
+            </a>
+            <a href="http://localhost:5000/api/get/itinerary/ics" target="_blank">
+              <DownloadButton>
+                {"Download as ICS"}
+              </DownloadButton>
+            </a>
+        </ButtonWrapper>
+      </Wrapper>
+
+      <LinkBox>
+        <Link to="/Busy" ><Button>
+          {String.fromCharCode(8592)}
+        </Button> </Link>
+      </LinkBox>
 
     </Container>
 
-);
+  );
 
 };
 
