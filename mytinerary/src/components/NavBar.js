@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import  LogoIcon from "../assets/Logo.png";
 import { render } from "react-dom";
+import {Link} from 'react-router-dom';
 
-const Navbar = () => {
+function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-
+    
     return (
         <Nav>
           <Container>
-              <Logo img src = {LogoIcon}/>
+              <Link to="/"> <Logo img src = {LogoIcon}/> </Link>
               
               <Hamburger onClick={() => setIsOpen(!isOpen)}>
               <span />
@@ -19,13 +20,14 @@ const Navbar = () => {
               </Hamburger>
               <Menu isOpen={isOpen}>
               <LinkWrapper>
-                  <MenuLink href="">Get Started</MenuLink>
-                  <MenuLink href="">About Us</MenuLink>
+                  <Link to ="/GetStarted"> <MenuLink>Get Started</MenuLink> </Link>
+                  <Link to ="/AboutUs"> <MenuLink>About Us</MenuLink></Link>
               </LinkWrapper>
               </Menu>
           </Container>
         </Nav>
-    ); 
+    ) 
+    
   
 };
 
@@ -59,7 +61,7 @@ const Logo = styled.img`
     cursor: pointer;
 `;
 
-const MenuLink = styled.a`
+const MenuLink = styled.div`
   text-decoration: none;
   color: #FFFFFF;
   font-size: 0.9rem;

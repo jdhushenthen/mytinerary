@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NavBar from "./NavBar.js"
 
-const Body = () => {
-
+function Body(){
 
   return (
     <Container bg={bg}>
@@ -21,10 +20,10 @@ const Body = () => {
                 Plan your next trip in minutes. Using our algorithm, we will generate an itinerary based on your interests and desired location.
             </BodyText>
         
-            <Button>
+            <Link to ="/GetStarted"><Button>
                 {"Get Started  "}
                 {String.fromCharCode(8594)}
-            </Button>
+            </Button> </Link>
         </Wrapper>
 
     </Container>
@@ -64,6 +63,7 @@ const Container = styled.div`
   background-size: fill;
   background-position: center;
   overflow-x: hidden;
+  background-color: #000;
 `;
 
 const Wrapper = styled.div`

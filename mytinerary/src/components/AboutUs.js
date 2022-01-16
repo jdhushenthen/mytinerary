@@ -6,7 +6,7 @@ import GT from "../assets/Gurman.png"
 import JS from "../assets/Jordan.png"
 import NavBar from "./NavBar.js"
 
-const AboutUs = () => {
+function AboutUs() {
 
 
   return (
@@ -101,6 +101,7 @@ const Container = styled.div`
   background-size: fill;
   background-position: center;
   overflow-x: hidden;
+  background-color: #000;
 `;
 
 const Wrapper = styled.div`

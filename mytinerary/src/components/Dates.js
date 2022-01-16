@@ -4,7 +4,7 @@ import bg from "../assets/Background.png";
 import NavBar from "./NavBar.js"
 import {Link} from 'react-router-dom';
 
-function GetStarted() {
+function Dates() {
 
 
   return (
@@ -13,13 +13,19 @@ function GetStarted() {
       <Wrapper>
         <Text>
           <Header>
-            Enter the city you would like to visit:
+             Enter your intended dates of arrival and departure:
           </Header>
         </Text>
-        <SearchBar placeholder = "Where are you going?" style={{width: "100%"}}/>
-        </Wrapper>
-        <LinkBox>
-          <Link to ="/Dates" ><Button>
+        <Bars>
+            <SearchBar placeholder = "When are you arriving?" style={{width: "40%"}}/>
+            <SearchBar placeholder = "When are you leaving?" style={{width: "40%"}}/>
+        </Bars>
+      </Wrapper>
+      <LinkBox>
+          <Link to ="/GetStarted" ><Button>
+            {String.fromCharCode(8592)}
+              </Button> </Link>
+              <Link to ="/Interests" ><Button>
             {String.fromCharCode(8594)}
               </Button> </Link>
         </LinkBox>
@@ -35,12 +41,6 @@ const Img = styled.img`
   width: 100%;
 `;
 
-const Text = styled.div`
-  max-width = 100%;
-  align-items: center;
-  justify-content: center;
-`;
-
 const LinkBox = styled.div`
 width: 100%;
 display: flex;
@@ -50,6 +50,22 @@ align-items: center;
 flex-wrap: wrap;
 max-width: 100%;
 margin: auto;
+column-gap: 1rem;
+`;
+
+const Bars = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 3rem;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Text = styled.div`
+  max-width = 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 1rem;
 `;
 
 const Bios = styled.div`
@@ -105,6 +121,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   max-width: 100%;
   margin: auto;
+  width: 100%;
 
   background-image: url(${({ bg }) => bg});
   background-size: fill;
@@ -152,4 +169,4 @@ const Button = styled.button`
   }
 `;
 
-export default GetStarted;
+export default Dates;
