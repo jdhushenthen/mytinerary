@@ -3,9 +3,12 @@ import styled from "styled-components";
 import bg from "../assets/Background.png";
 import NavBar from "./NavBar.js"
 import {Link} from 'react-router-dom';
+import React, { useState } from "react";
+import DatePicker from "react-date-picker";
 
 function Dates() {
-
+  const [startvalue, onStartChange] = useState(new Date());
+  const [endvalue, onEndChange] = useState(new Date());
 
   return (
     <Container bg={bg}>
@@ -17,8 +20,16 @@ function Dates() {
           </Header>
         </Text>
         <Bars>
-            <SearchBar placeholder = "When are you arriving?" style={{width: "40%"}}/>
-            <SearchBar placeholder = "When are you leaving?" style={{width: "40%"}}/>
+          <DateText>
+            Arrival
+            <DatePicker style = {"none"} className = "DatePicker" onChange={onStartChange} value={startvalue} minDate = {new Date()}/>
+          </DateText>
+          <DateText>
+            Departure
+            <DatePicker className = "DatePicker" onChange={onEndChange} value={endvalue} minDate = {new Date()}/>
+          </DateText>
+          
+          
         </Bars>
       </Wrapper>
       <LinkBox>
@@ -92,6 +103,16 @@ const SearchBar = styled.input`
   border-radius: 2rem;
   font-size: 1rem;
 
+`;
+
+const DateText = styled.div`
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 5rem;
 `;
 
 const Picture = styled.div`

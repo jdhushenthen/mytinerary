@@ -1,9 +1,6 @@
 
 import styled from "styled-components";
-import image from "../assets/Logo.png";
 import bg from "../assets/Background.png";
-import AboutUs from './AboutUs';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NavBar from "./NavBar.js"
 
@@ -27,13 +24,6 @@ function Body(){
         </Wrapper>
 
     </Container>
-
-    
-    // {/* <Router>
-    //     <Routes>
-    //         <Route path="/AboutUS" component={AboutUs}/>
-    //     </Routes>
-    // </Router>  */}
 
   );
   
@@ -89,7 +79,7 @@ const Button = styled.button`
   padding: 0.8rem 1.1rem;
   color: #fff;
   border-radius: 0.75rem;
-  box-shadow: 0px 13px 24px -7px ##FF3636;
+  box-shadow: 0px 13px 24px -7px rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease-in-out;
   margin-left: 0rem;
   cursor: pointer;

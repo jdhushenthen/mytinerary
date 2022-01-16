@@ -3,9 +3,9 @@ import styled from "styled-components";
 import bg from "../assets/Background.png";
 import NavBar from "./NavBar.js"
 import {Link} from 'react-router-dom';
+import ReactSlider from 'react-slider'
 
 function Busy() {
-
 
   return (
     <Container bg={bg}>
@@ -16,7 +16,20 @@ function Busy() {
               Select how busy you want the schedule to be:
           </Header>
         </Text>
-          
+        <div className = "SliderWrap">
+          <input className = "Slider" type="range" list="tickmarks" min="0" max = "2" />
+          <datalist id="tickmarks">
+          <option value="0" label="Relaxed"></option>
+          <option value="1" label="Moderate"></option>
+          <option value="2" label="Busy"></option>
+          </datalist>
+          </div>
+        <Options>
+          <span>Relaxed</span>
+          <span className = "secSpan" >Moderate</span>
+          <span className ="lastSpan">Busy</span>
+        </Options>
+        
       </Wrapper>
       <LinkBox>
           <Link to ="/Interests" ><Button>
@@ -53,9 +66,16 @@ column-gap: 1rem;
 const Bars = styled.div`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 3rem;
+  column-gap: 10rem;
   align-items: center;
   justify-content: center;
+`;
+
+const Options = styled.div`
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Text = styled.div`
@@ -128,9 +148,10 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-    padding: 1rem 0rem 10rem 2rem;
+    padding: 1rem 0rem 11rem 2rem;
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    align-items: center;
 `;
 
 const Header = styled.div`

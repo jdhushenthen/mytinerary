@@ -19,10 +19,8 @@ function Navbar() {
               <span />
               </Hamburger>
               <Menu isOpen={isOpen}>
-              <LinkWrapper>
-                  <Link to ="/GetStarted"> <MenuLink>Get Started</MenuLink> </Link>
-                  <Link to ="/AboutUs"> <MenuLink>About Us</MenuLink></Link>
-              </LinkWrapper>
+                  <Link className ="Link" to ="/GetStarted"> <MenuLink>Get Started</MenuLink> </Link>
+                  <Link className ="Link" to ="/AboutUs"> <MenuLink>About Us</MenuLink></Link>
               </Menu>
           </Container>
         </Nav>
@@ -61,21 +59,6 @@ const Logo = styled.img`
     cursor: pointer;
 `;
 
-const MenuLink = styled.div`
-  text-decoration: none;
-  color: #FFFFFF;
-  font-size: 0.9rem;
-  padding: 0.7rem 1.5rem;
-  transition: all 0.2s ease-in;
-  border-radius: 0.5rem;
-  font-weight: 500;
-
-  &:hover {
-    color: #7781d4;
-    background: #e7e9fc;
-  }
-`;
-
 
 
 const Container = styled.div`
@@ -92,22 +75,6 @@ const Container = styled.div`
   png {
     height: 1.4rem;
     cursor: pointer;
-  }
-
-  a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-size: 0.9rem;
-    padding: 0.7rem 1.5rem;
-    transition: all 0.2s ease-in;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    &:hover {
-      color: #e63737;
-      background: rgb(255, 247, 247, 0.25);
-    }
   }
 `;
 
@@ -145,6 +112,15 @@ const Menu = styled.div`
     transition: max-height 0.3s ease-in;
     width: 100%;
   }
+`;
+
+const MenuLink = styled.div`
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.5rem;
+  transition: all 0.2s ease-in;
+  border-radius: 0.5rem;
+  font-weight: 500;
 `;
 
 const LinkWrapper = styled.div`

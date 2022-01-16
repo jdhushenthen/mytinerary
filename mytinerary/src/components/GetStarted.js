@@ -3,6 +3,7 @@ import styled from "styled-components";
 import bg from "../assets/Background.png";
 import NavBar from "./NavBar.js"
 import {Link} from 'react-router-dom';
+import Autocomplete from "./Autocomplete";
 
 function GetStarted() {
 
@@ -16,7 +17,7 @@ function GetStarted() {
             Enter the city you would like to visit:
           </Header>
         </Text>
-        <SearchBar placeholder = "Where are you going?" style={{width: "100%"}}/>
+        <Autocomplete/>
         </Wrapper>
         <LinkBox>
           <Link to ="/Dates" ><Button>
